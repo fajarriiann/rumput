@@ -1,0 +1,49 @@
+name: Rumput
+
+on:
+  push:
+    branches:
+      - master
+
+  schedule:
+    - cron: '0 0,12 * * *'
+
+jobs:
+  rumput:
+    runs-on: ubuntu-latest
+    steps:
+      - name : global directory
+        run: git config --global --add safe.directory /github/workspace
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+
+      - name: Modify last update
+        run: |
+          d=`date '+%Y-%m-%dT%H:%M:%SZ'`
+          echo $d > LAST_UPDATED
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "fajarrians578@gmail.com"
+          git config --local user.name "fajarrians"
+          git add -A
+
+          arr[0]="feat: kamu nanya?"
+          arr[1]="feat: kamu bertanya - tanya"
+          arr[2]="feat: yaudah"
+          arr[3]="feat: aku kasih tau ya"
+          arr[4]="feat: tapi boong!"
+          arr[5]="feat: blokkk!"
+          
+          rand=$[$RANDOM % ${#arr[@]}]
+          
+          git commit -m "${arr[$rand]}"
+
+      - name: Github Push
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          force: true
+          directory: '.'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
