@@ -30,12 +30,12 @@ jobs:
           git config --local user.name "fajarrians"
           git add -A
 
-          arr[0]="feat: kamu nanya?"
-          arr[1]="feat: kamu bertanya - tanya"
-          arr[2]="feat: yaudah"
-          arr[3]="feat: aku kasih tau ya"
-          arr[4]="feat: tapi boong!"
-          arr[5]="feat: blokkk!"
+          arr[0]="berkata: kamu nanya?"
+          arr[1]="berkata: kamu bertanya - tanya"
+          arr[2]="berkata: yaudah"
+          arr[3]="berkata: aku kasih tau ya"
+          arr[4]="berkata: tapi boong!"
+          arr[5]="berkata: blokkk!"
           
           rand=$[$RANDOM % ${#arr[@]}]
           
