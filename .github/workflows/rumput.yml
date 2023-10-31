@@ -26,8 +26,8 @@ jobs:
 
       - name: Commit changes
         run: |
-          git config --local user.email "fajarrians578@gmail.com"
-          git config --local user.name "fajarrians"
+          git config --local user.email "fajarriiann@gmail.com"
+          git config --local user.name "fajarriiann"
           git add -A
 
           arr[0]="berkata: kamu nanya?"
